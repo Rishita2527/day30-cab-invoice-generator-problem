@@ -1,4 +1,4 @@
-package com.bridgelabz4;
+package com.bridgelabz5;
 
 public class InvoiceSummary {
     private final int numberOfRides;

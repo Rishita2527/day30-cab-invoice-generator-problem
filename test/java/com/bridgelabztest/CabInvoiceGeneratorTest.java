@@ -3,9 +3,9 @@ package com.bridgelabztest;
 /**
  * Purpose : To perform JUnit testing on methods of Cab Invoice Generator
  */
-import com.bridgelabz4.CabInvoiceGenerator;
-import com.bridgelabz4.Ride;
-import com.bridgelabz4.InvoiceSummary;
+import com.bridgelabz5.CabInvoiceGenerator;
+import com.bridgelabz5.Ride;
+import com.bridgelabz5.InvoiceSummary;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,5 +74,17 @@ public class CabInvoiceGeneratorTest {
 
         InvoiceSummary expectedInVoice = inVoiceGenerator.inVoiceService(listOfRides);
         Assert.assertEquals(expectedInVoice,summary);
+    }
+    /**
+     * Test Case 5 : TO get premium rides cost
+     */
+    @Test
+    public void ifSelectedPremiumRides_ShouldReturnPremiumPrices() {
+
+        double distance = 4.0;
+        int time = 10;
+        double totalFare = inVoiceGenerator.calculateFare(distance, time);
+
+        Assert.assertEquals(80.0, totalFare, 0.0);
     }
 }
