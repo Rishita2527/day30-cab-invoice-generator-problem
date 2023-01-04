@@ -1,5 +1,4 @@
-package com.bridgelabz2;
-
+package com.bridgelabz3;
 public class Ride {
     public final double distance;
     public final int time;

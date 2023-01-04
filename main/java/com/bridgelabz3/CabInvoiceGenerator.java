@@ -1,6 +1,7 @@
-package com.bridgelabz2;
+package com.bridgelabz3;
+
 /*
- * UC2 : The InVoice Generator Should Now Take Multiple Rides,and Calculate Total Aggregate for all.
+ * UC3 : The InVoice Generator Should Now return total number of rides, total fare & Average fare per ride.
  */
 
 public class CabInvoiceGenerator {
@@ -20,12 +21,12 @@ public class CabInvoiceGenerator {
     }
 
     //To calculate fare for multiple rides
-    public double calculateFare(Ride[] rides) {
+    public InvoiceSummary calculateFare(Ride[] rides) {
         double totalAggregateFare = 0;
         for (Ride ride :rides) {
             totalAggregateFare += this.calculateFare(ride.distance,ride.time);
         }
         System.out.println(totalAggregateFare);
-        return totalAggregateFare;
+        return new InvoiceSummary(rides.length,totalAggregateFare);
     }
 }
