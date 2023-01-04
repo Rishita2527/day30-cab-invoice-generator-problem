@@ -3,9 +3,9 @@ package com.bridgelabztest;
 /**
  * Purpose : To perform JUnit testing on methods of Cab Invoice Generator
  */
-import com.bridgelabz3.CabInvoiceGenerator;
-import com.bridgelabz3.Ride;
-import com.bridgelabz3.InvoiceSummary;
+import com.bridgelabz4.CabInvoiceGenerator;
+import com.bridgelabz4.Ride;
+import com.bridgelabz4.InvoiceSummary;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,5 +56,23 @@ public class CabInvoiceGeneratorTest {
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
 
         Assert.assertEquals(expectedInvoiceSummary, summary);
+    }
+    /**
+     * Test Case 4 : To get list of rides from ride repository when user id is given
+     */
+    @Test
+    public void givenUserID_ShouldGetTheListOfRidesFromRepo_ReturnInVoice() {
+        int userID = 1;
+        Ride[] rides = {
+                new Ride(2.0, 5),
+                new Ride(0.1, 1)};
+        InvoiceSummary summary = inVoiceGenerator.calculateFare(rides);
+
+        Hashtable<Integer,Ride[]> listOfRides = new Hashtable<>();
+
+        listOfRides.put(userID,rides);
+
+        InvoiceSummary expectedInVoice = inVoiceGenerator.inVoiceService(listOfRides);
+        Assert.assertEquals(expectedInVoice,summary);
     }
 }

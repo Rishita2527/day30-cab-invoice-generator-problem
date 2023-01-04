@@ -1,8 +1,12 @@
-package com.bridgelabz3;
+package com.bridgelabz4;
 
 /*
- * UC3 : The InVoice Generator Should Now return total number of rides, total fare & Average fare per ride.
+ *  UC 4 : InVoice Service
+ *         Given an User ID,The Invoice Service gets the list of rides from
+ *         Ride Repository,and returns an invoice
  */
+
+import java.util.Hashtable;
 
 public class CabInvoiceGenerator {
 
@@ -28,5 +32,11 @@ public class CabInvoiceGenerator {
         }
         System.out.println(totalAggregateFare);
         return new InvoiceSummary(rides.length,totalAggregateFare);
+    }
+
+    public InvoiceSummary inVoiceService(Hashtable<Integer, Ride[]> listOfRides){
+        Ride[] rides = listOfRides.get(1);
+        InvoiceSummary inVoiceSummary = calculateFare(rides);
+        return inVoiceSummary;
     }
 }
